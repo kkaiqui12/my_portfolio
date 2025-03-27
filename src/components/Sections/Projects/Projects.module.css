@@ -1,67 +1,77 @@
-/* Projects.css ou styles.css */
+/* Container principal - ajuste para sincronizar com cards */
 .projects-container {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); /* Alinhado à largura do card */
+  gap: 3rem; /* Reduzido para espaçamento equilibrado */
   padding: 2rem;
+  animation: fadeIn 1s ease-in forwards;
+  opacity: 0; /* Inicia invisível */
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card - remove largura fixa */
 .project-card {
-  width: 320px;
+  /* Remove width: 420px */
   background: linear-gradient(145deg, #1e293b, #0f172a);
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  transform: perspective(1000px) rotateY(0deg);
   transition: transform 0.5s, box-shadow 0.5s;
 }
 
-.project-card:hover {
-  transform: perspective(1000px) rotateY(10deg);
-  box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
-}
-
+/* Imagem - aumento da altura */
 .card-image img {
   width: 100%;
-  height: 180px;
+  height: 340px; /* Altura fixa aumentada */
   object-fit: cover;
-  border-bottom: 2px solid #0ea5e9;
+  object-position: center; /* Centraliza o foco da imagem */
 }
 
+/* Ajustes de espaçamento interno */
 .card-content {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .card-content h3 {
-  color: #f8fafc;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem; /* Espaço aumentado */
 }
 
 .card-content p {
-  color: #94a3b8;
-  font-size: 0.9rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem; /* Espaço aumentado */
+  line-height: 1.6; /* Melhora legibilidade */
 }
 
+/* Efeito hover no card */
+.project-card:hover {
+  transform: perspective(1000px) rotateY(10deg); /* Rotação 3D no eixo Y */
+  box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3); /* Sombra ciano neon */
+}
+
+/* Efeito ao clicar no card */
+.project-card:active {
+  transform: perspective(1000px) rotateY(10deg) scale(1.05); /* Aumenta levemente */
+}
+/* Tags - espaçamento aumentado */
 .tech-tags {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 0.8rem; /* Mais espaço entre tags */
+  margin-bottom: 2rem;
 }
 
-.tech-tags span {
-  background: #0ea5e9;
-  color: white;
-  padding: 0.3rem 0.6rem;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: bold;
-}
-
+/* Ajuste a cor do texto e adicione hover */
 .demo-button {
-  display: inline-block;
   background: transparent;
-  color: #0ea5e9;
-  padding: 0.6rem 1.2rem;
+  color: #fff; /* Mudança crítica: texto branco para contraste */
+  padding: 0.8rem 1.2rem;
   border: 2px solid #0ea5e9;
   border-radius: 5px;
   text-decoration: none;
@@ -71,5 +81,21 @@
 
 .demo-button:hover {
   background: #0ea5e9;
-  color: #0f172a;
+  color: #0f172a; /* Texto escuro no hover */
+}
+
+/* Responsividade - ajuste fino */
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+    gap: 2rem; /* Espaço reduzido em mobile */
+  }
+
+  .card-image img {
+    height: 250px; /* Altura menor para mobile */
+  }
+
+  .card-content {
+    padding: 1.5rem;
+  }
 }

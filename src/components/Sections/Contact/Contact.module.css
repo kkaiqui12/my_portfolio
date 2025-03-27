@@ -1,21 +1,48 @@
-.homeSection {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    text-align: center;
-    padding: 2rem;
+/* Container da apresentação/texto */
+.presentation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 60vh;
+  min-height: 400px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  animation: fadeIn 1s ease-in forwards; /* Adicione "forwards" para manter o estado final */
+  opacity: 0; /* Inicia invisível para a animação */
+  margin: 0 auto;
+}
+
+/* Estilo do título principal */
+.presentation h1 {
+  font-size: 2.5rem;            /* Tamanho grande para destaque */
+  margin-bottom: 1rem;          /* Espaço abaixo do título */
+  color: #333;                  /* Cor escura para contraste */
+}
+
+/* Estilo dos parágrafos */
+.presentation p {
+  font-size: 1.2rem;            /* Tamanho legível */
+  margin-bottom: 0.5rem;        /* Espaço entre parágrafos */
+  color: #666;                  /* Cor cinza para texto secundário */
+}
+
+/* Classe para descrição adicional */
+.description {
+  padding-top: 3%;              /* Espaço no topo do texto */
+  line-height: 1.6;             /* Espaçamento entre linhas */
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px); /* Movimento Vertical para melhor efeito */
   }
-  
-  .title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #2c3e50;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  .subtitle {
-    font-size: 1.5rem;
-    color: #7f8c8d;
-  }
+}

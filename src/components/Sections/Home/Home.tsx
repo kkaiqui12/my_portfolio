@@ -24,6 +24,7 @@ export default function Home() {
             <p>Especialista em React, Node.js e desenvolvimento de sistemas escaláveis</p>
             <p>+5 anos de experiência em projetos complexos</p>
           </div>
+            <a href="./about" className={styles['demo-button']}>Sobre</a>
         </div>
       </div>
     </section>
