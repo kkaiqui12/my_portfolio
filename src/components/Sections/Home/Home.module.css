@@ -1,79 +1,99 @@
+/* Container principal da página */
 .home {
-  display: flex;
-  min-height: 100vh;
-  padding: 2rem;
+  display: flex;                /* Ativa o layout flexbox */
+  min-height: 100vh;            /* Altura mínima = 100% da tela */
+  padding: 2rem;                /* Espaçamento interno geral */
+  align-items: flex-start;      /* Alinha os itens no topo do container */
+  padding-top: 80px;            /* Espaço extra no topo da página */
 }
 
+/* Container que envolve vídeo e apresentação */
 .container {
-  display: flex;
-  width: 100%;
-  gap: 2rem;
+  display: flex;                /* Layout flexbox para os filhos */
+  width: 100%;                  /* Largura total do pai (.home) */
+  gap: 2rem;                    /* Espaço entre vídeo e apresentação */
+  margin-top: 40px;             /* Espaço acima do container (abaixo do header) */
 }
 
+/* Container do vídeo */
 .videoWrapper {
-  flex: 1;
-  position: relative;
-  padding-top: 10%;
-  width: 80%;
+  flex: 1;                      /* Ocupa espaço disponível igualmente */
+  position: relative;           /* Permite posicionamento relativo de elementos internos */
+  width: 80%;                   /* Largura relativa ao container pai */
+  height: 60vh;                /* Altura = 60% da altura da tela */
+  min-height: 400px;            /* Altura mínima fixa para telas grandes */
 }
 
+/* Estilização do elemento de vídeo */
 .video {
-  width: 100%;
-  height: 60%;
-  min-height: 400px;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100%;                  /* Largura total do .videoWrapper */
+  height: 100%;                 /* Altura total do .videoWrapper */
+  border: none;                 /* Remove borda padrão */
+  border-radius: 10px;          /* Borda arredondada */
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Sombra suave */
 }
 
+/* Container da apresentação/texto */
 .presentation {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 10%;
-  background: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
-  border-radius: 10px;
-  animation: fadeIn 1s ease-in;
+  flex: 1;                      /* Ocupa espaço igual ao vídeo */
+  display: flex;                /* Flexbox para alinhamento interno */
+  flex-direction: column;       /* Organiza os filhos em coluna */
+  justify-content: center;      /* Centraliza verticalmente */
+  align-items: center;          /* Centraliza horizontalmente */
+  width: 80%;                   /* Mesma largura do .videoWrapper */
+  height: 60vh;                /* Altura igual à do vídeo */
+  min-height: 400px;            /* Altura mínima igual à do vídeo */
+  background: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+  border-radius: 10px;          /* Borda arredondada */
+  animation: fadeIn 1s ease-in; /* Animação de entrada */
+  margin: 0 auto;               /* Centraliza horizontalmente */
 }
 
+/* Estilo do título principal */
 .presentation h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #333;
+  font-size: 2.5rem;            /* Tamanho grande para destaque */
+  margin-bottom: 1rem;          /* Espaço abaixo do título */
+  color: #333;                  /* Cor escura para contraste */
 }
 
+/* Estilo dos parágrafos */
 .presentation p {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #666;
+  font-size: 1.2rem;            /* Tamanho legível */
+  margin-bottom: 0.5rem;        /* Espaço entre parágrafos */
+  color: #666;                  /* Cor cinza para texto secundário */
 }
 
+/* Classe para descrição adicional */
 .description {
-  padding-top: 10%;
-  line-height: 1.6;
+  padding-top: 3%;              /* Espaço no topo do texto */
+  line-height: 1.6;             /* Espaçamento entre linhas */
 }
 
+/* Animação de fade-in com movimento */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateX(50px); }
-  to { opacity: 1; transform: translateX(0); }
+  from { 
+    opacity: 0;                 /* Inicia invisível */
+    transform: translateX(50px); /* Começa 50px à direita */
+  }
+  to { 
+    opacity: 1;                 /* Termina visível */
+    transform: translateX(0);   /* Posição original */
+  }
 }
 
-/* Responsividade */
+/* Estilos para telas menores que 768px */
 @media (max-width: 768px) {
+  .videoWrapper, .presentation {
+    width: 100%;                /* Ocupa largura total em mobile */
+    height: 50vh;               /* Altura reduzida para mobile */
+    min-height: 300px;          /* Altura mínima menor */
+  }
+  
+  .home {
+    padding-top: 40px;          /* Reduz espaço no topo em mobile */
+  }
+  
   .container {
-    flex-direction: column;
-  }
-  
-  .video {
-    min-height: 300px;
-  }
-  
-  .presentation {
-    padding: 1rem;
-  }
-  
-  .presentation h1 {
-    font-size: 2rem;
+    margin-top: 20px;           /* Espaço menor entre header e conteúdo */
   }
 }
