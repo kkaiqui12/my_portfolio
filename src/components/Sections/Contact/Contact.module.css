@@ -10,7 +10,9 @@
   min-height: 400px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
-  animation: fadeIn 1s ease-in forwards; /* Adicione "forwards" para manter o estado final */
+  animation: smoothFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Timing function suave */
+  will-change: transform, opacity; /* Pré-avisa o navegador para otimização */
+  backface-visibility: hidden; /* Elimina flickering em alguns dispositivos */
   opacity: 0; /* Inicia invisível para a animação */
   margin: 0 auto;
 }
@@ -35,14 +37,14 @@
   line-height: 1.6;             /* Espaçamento entre linhas */
 }
 
-/* Animação de entrada */
-@keyframes fadeIn {
+/* =========== Animação de entrada (Otimizada) =========== */
+@keyframes smoothFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-30px); /* Movimento Vertical para melhor efeito */
+    transform: translateY(-30px) translateZ(0); /* Aceleração de GPU */
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0) translateZ(0);
   }
 }

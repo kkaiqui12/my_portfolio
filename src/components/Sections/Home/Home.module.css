@@ -1,7 +1,7 @@
 .home {
   display: flex;
-  min-height: 100vh;
-  padding: 2rem;
+  min-height: calc(100vh - 80px); /* Compensa o padding-top */
+  padding: 2rem 2rem 0; /* Mantém padding só nas laterais e topo */
   align-items: flex-start; /* Alinha conteúdo no topo */
   padding-top: 80px; /* Espaço extra acima do conteúdo */
 }
@@ -13,18 +13,21 @@
   margin-top: 40px; /* Adiciona espaço entre o header e as seções */
 }
 
-.videoWrapper {
+/* Container da imagem */
+.imageWrapper {
   flex: 1;
   position: relative;
-  width: 80%;
-  height: 60vh; /* Altura igual à do vídeo */
-  min-height: 400px; /* Altura mínima igual à do vídeo */
+  margin: 0 auto; /* Centraliza */
+  width: 50%; /* Reduz a largura */
+  height: 70vh; /* Altura controlada */
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.video {
+.profileImage {
   width: 100%;
-  height: 100%; /* Ocupa 100% do container pai (.videoWrapper) */
-  border: none;
+  height: 100%; /* Usa altura do container */
+  object-fit: contain; /* Mantém proporção sem cortar */
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
@@ -40,7 +43,9 @@
   min-height: 400px; /* Altura mínima igual à do vídeo */
   background: rgba(255, 255, 255, 0.9); 
   border-radius: 10px;
-  animation: fadeIn 1s ease-in;
+  animation: smoothFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Timing function suave */
+  will-change: transform, opacity; /* Pré-avisa o navegador para otimização */
+  backface-visibility: hidden; /* Elimina flickering em alguns dispositivos */
   margin: 0 auto; /* Centraliza horizontalmente no container */
 }
 
@@ -79,9 +84,16 @@
   color: #fff; /* Texto escuro no hover */
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateX(50px); }
-  to { opacity: 1; transform: translateX(0); }
+/* =========== Animação de entrada (Otimizada) =========== */
+@keyframes smoothFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px) translateZ(0); /* Aceleração de GPU */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+  }
 }
 
 /* Responsividade */
