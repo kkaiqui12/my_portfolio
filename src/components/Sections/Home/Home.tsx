@@ -14,7 +14,9 @@ export default function Home() {
           />
         </div>
         <div className={styles.presentation}>
-          <h1>Olá, eu sou [Seu Nome]</h1>
+        <h1 className={styles.presentationH1}>
+          Olá, eu sou [Seu Nome]
+        </h1>
           <p>Desenvolvedor Full Stack</p>
           <div className={styles.description}>
             <p>Sou apaixonado por criar soluções tecnológicas inovadoras</p>

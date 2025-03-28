@@ -1,20 +1,62 @@
 import React from 'react';
 import styles from './Contact.module.css';
+import { FaWhatsapp, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FiInstagram } from 'react-icons/fi';
 
-const Contact: React.FC = () => {
+const Contact = () => {
   return (
-    <section id="contact" className={styles.contactSection}>
-            <div className={styles.presentation}>
-          <h1>Olá, eu sou [Seu Nome]</h1>
-          <p>Desenvolvedor Full Stack</p>
-          <div className={styles.description}>
-            <p>Sou apaixonado por criar soluções tecnológicas inovadoras</p>
-            <p>Especialista em React, Node.js e desenvolvimento de sistemas escaláveis</p>
-            <p>+5 anos de experiência em projetos complexos</p>
-          </div>
+    <section className={styles.contactSection}>
+      <div className={styles.presentation}>
+        <h1>Entre em Contato</h1>
+        <div className={styles.contactGrid}>
+          {/* WhatsApp */}
+          <a 
+            href="https://wa.me/9999999999" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={styles.contactItem}
+          >
+            <FaWhatsapp className={styles.contactIcon} />
+            <span>WhatsApp</span>
+          </a>
+
+          {/* LinkedIn */}
+          <a
+            href="https://linkedin.com/in/SEUPERFIL"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.contactItem}
+          >
+            <FaLinkedin className={styles.contactIcon} />
+            <span>LinkedIn</span>
+          </a>
+
+          {/* GitHub */}
+          <a
+            href="https://github.com/SEUUSER"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.contactItem}
+          >
+            <FaGithub className={styles.contactIcon} />
+            <span>GitHub</span>
+          </a>
+
+          {/* Instagram */}
+          <a
+            href="https://instagram.com/SEUUSER"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.contactItem}
+          >
+            <FiInstagram className={styles.contactIcon} />
+            <span>Instagram</span>
+          </a>
         </div>
+      </div>
     </section>
   );
 };
 
 export default Contact;
+

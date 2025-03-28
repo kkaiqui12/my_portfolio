@@ -1,50 +1,87 @@
-/* Container da apresentação/texto */
+/* Mantenha o mesmo estilo da home */
 .presentation {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  height: 60vh;
+  width: 60%;
   min-height: 400px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
-  animation: smoothFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Timing function suave */
-  will-change: transform, opacity; /* Pré-avisa o navegador para otimização */
-  backface-visibility: hidden; /* Elimina flickering em alguns dispositivos */
-  opacity: 0; /* Inicia invisível para a animação */
+  /* padding: 2rem; */
   margin: 0 auto;
+  animation: fadeIn 1s ease-in-out;
 }
 
-/* Estilo do título principal */
 .presentation h1 {
-  font-size: 2.5rem;            /* Tamanho grande para destaque */
-  margin-bottom: 1rem;          /* Espaço abaixo do título */
-  color: #333;                  /* Cor escura para contraste */
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+  margin: 1rem;
 }
 
-/* Estilo dos parágrafos */
-.presentation p {
-  font-size: 1.2rem;            /* Tamanho legível */
-  margin-bottom: 0.5rem;        /* Espaço entre parágrafos */
-  color: #666;                  /* Cor cinza para texto secundário */
+.contactSection {
+  padding: 150px 2rem 2rem; /* top, sides, bottom */
 }
 
-/* Classe para descrição adicional */
-.description {
-  padding-top: 3%;              /* Espaço no topo do texto */
-  line-height: 1.6;             /* Espaçamento entre linhas */
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
 }
 
-/* =========== Animação de entrada (Otimizada) =========== */
-@keyframes smoothFadeIn {
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.contactItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contactIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #0ea5e9;
+}
+
+/* Animação igual à home */
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-30px) translateZ(0); /* Aceleração de GPU */
+    transform: translateY(-30px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) translateZ(0);
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .presentation {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .contactSection {
+    padding-top: 100px; /* Menos espaço em mobile */
+  }
+  
+  .contactGrid {
+    grid-template-columns: 1fr;
   }
 }
