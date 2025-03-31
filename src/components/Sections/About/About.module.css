@@ -4,25 +4,26 @@
   min-height: 100vh;               /* Altura mínima igual à tela inteira */
   padding: 2rem;                   /* Espaçamento interno geral */
   align-items: flex-start;         /* Alinhamento dos itens no topo */
-  padding-top: 80px;               /* Espaço extra no topo (para header fixo) */
 }
 
 /* =========== Container principal =========== */
 .container {
-  display: flex;                   /* Layout flex para organização horizontal */
-  flex-direction: row-reverse; /* Inverte a ordem dos elementos */
   width: 100%;                     /* Largura total do container pai */
-  gap: 2rem;                       /* Espaço entre elementos filhos */
   margin-top: 40px;                /* Margem superior para separar do header */
 }
 
 /* =========== Container do vídeo =========== */
 .videoWrapper {
-  flex: 1;                         /* Ocupa espaço disponível igualmente */
-  position: relative;              /* Permite posicionamento interno absoluto */
-  width: 80%;                      /* Largura relativa ao container */
-  height: 60vh;                    /* Altura baseada na viewport (60% da tela) */
-  min-height: 400px;               /* Altura mínima para telas grandes */
+  width: 100%;                      /* Largura relativa ao container */
+  height: 79vh;                    /* Altura baseada na viewport (60% da tela) */
+  padding-bottom: 2rem;
+  padding-right: 10.9rem;
+  padding-left: 10.9rem;
+  /* Animação */
+  opacity: 0; /* Elemento inicia invisível */
+  animation: smoothFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Timing function suave */
+  will-change: transform, opacity; /* Pré-avisa o navegador para otimização */
+  backface-visibility: hidden; /* Elimina flickering em alguns dispositivos */
 }
 
 /* =========== Elemento de vídeo =========== */
@@ -36,12 +37,11 @@
 
 /* =========== Container de texto/apresentação =========== */
 .presentation {
-  flex: 1;                         /* Espaço igual ao vídeo */
   display: flex;                   
   flex-direction: column;          /* Organização vertical */
   justify-content: flex-start;     /* Conteúdo alinhado no topo */
   align-items: center;             /* Centralização horizontal */
-  width: 80%;                      /* Largura proporcional ao vídeo */
+  width: 77%;                      /* Largura proporcional ao vídeo */
   min-height: 400px;               /* Altura mínima garantida */
   background: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
   border-radius: 10px;             /* Bordas arredondadas */

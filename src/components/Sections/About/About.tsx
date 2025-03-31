@@ -23,16 +23,6 @@ export default function About() {
               <p>Sou apaixonado por criar soluções tecnológicas inovadoras</p>
               <p>Especialista em React, Node.js e desenvolvimento de sistemas escaláveis</p>
               <p>+5 anos de experiência em projetos complexos</p>
-              <p>+5 anos de experiência em projetos complexos</p>
-              <p>+5 anos de experiência em projetos complexos</p>
-              <p>+5 anos de experiência em projetos complexos</p>
-              <p>+5 anos de experiência em projetos complexos</p>
-              <p>+5 anos de experiência em projetos complexos</p>
-              <p>+5 anos de experiência em projetos complexos</p>
-              <p>+5 anos de experiência em projetos complexos</p>
-              <p>+5 anos de experiência em projetos complexos</p>
-              <p>+5 anos de experiência em projetos complexos</p>
-              <p>+5 anos de experiência em projetos complexos</p>
             </div>
           </div>
         </div>

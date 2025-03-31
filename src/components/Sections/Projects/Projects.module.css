@@ -47,7 +47,6 @@
 }
 
 .card-content p {
-  margin-bottom: 1.5rem; /* Espaço aumentado */
   line-height: 1.6; /* Melhora legibilidade */
 }
 
@@ -63,7 +62,7 @@
 }
 /* Tags - espaçamento aumentado */
 .tech-tags {
-  gap: 0.8rem; /* Mais espaço entre tags */
+  margin-top: 0.5rem; /* Espaço aumentado */
   margin-bottom: 2rem;
 }
 
