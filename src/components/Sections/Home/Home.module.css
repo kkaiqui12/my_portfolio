@@ -97,21 +97,35 @@
   50% { border-color: #0ea5e9 }
 }
 
-/* Ajuste a cor do texto e adicione hover */
+.buttonsContainer {
+  display: flex;
+  gap: 1rem; /* Espaço entre os botões */
+  margin-top: 1rem;
+}
+
 .demo-button {
   background: #0ea5e9;
-  color: #0f172a; /* Mudança crítica: texto branco para contraste */
+  color: #0f172a;
   padding: 0.8rem 1.2rem;
   border: 2px solid #0ea5e9;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  cursor: pointer; /* Adiciona cursor pointer para parecer clicável */
+  display: inline-block; /* Garante que o hover funcione corretamente */
 }
 
 .demo-button:hover {
   background: #0f172a;
-  color: #fff; /* Texto escuro no hover */
+  color: #fff;
+  transform: translateY(-2px); /* Efeito sutil de levantar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra no hover */
+}
+
+button.demo-button {
+  font: inherit;
+  font-weight: bold;
 }
 
 /* =========== Animação de entrada (Otimizada) =========== */
